@@ -1021,6 +1021,19 @@ class Client(object):
             url="https://mp.weixin.qq.com/cgi-bin/showqrcode",
             params={"ticket": ticket}
         )
+    
+    def get_all_private_template(
+        self
+    ):
+        """
+        获取模板列表
+        详情请参考 https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Template_Message_Interface.html#3
+
+        :return: 返回的 JSON 数据包
+        """
+        return self.get(
+            url="https://api.weixin.qq.com/cgi-bin/template/get_all_private_template",
+        )
 
     def send_template_message(
         self, user_id, template_id, data, url='', miniprogram=None
